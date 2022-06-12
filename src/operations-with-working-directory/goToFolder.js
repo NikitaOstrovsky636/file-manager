@@ -9,7 +9,9 @@ export default async function(current, target) {
         } else {
 
             const newPath = resolve(current, target);
-            const isFolderExists = await stat(newPath).then((data) => (data.isDirectory()) ? true : false).catch(() => false);
+            const isFolderExists = await stat(newPath)
+                .then((data) => (data.isDirectory()) ? true : false)
+                .catch(() => false);
     
             if (isFolderExists) {
                 chdir(newPath);
