@@ -38,7 +38,7 @@ export default function(flag) {
                     break;
                 
                 default:
-                    throw new Error(`Operation failed! You are currently in ${cwd()}\n`);
+                    throw new Error(`Invalid input! You are currently in ${cwd()}\n`);
             }
         }
     } catch (e) {

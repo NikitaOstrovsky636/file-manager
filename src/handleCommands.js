@@ -11,6 +11,7 @@ import copyFile from './operations-with-files/copy.js';
 import moveFile from './operations-with-files/move.js';
 import removeFile from './operations-with-files/remove.js';
 import handleOsCommands from './operations-with-os/handle-os-commands.js';
+import hashFile from './operations-with-hash/hash.js';
 
 
 let currentFolderPath = homedir();
@@ -93,6 +94,18 @@ export default async function handleCommands(command) {
                 const commandFlag = arrayFromCommand[1];
 
                 handleOsCommands(commandFlag || null);
+
+                break;
+
+            case ('hash'):
+                const hashedFile = arrayFromCommand[1];
+
+                hashFile(hashedFile || null);
+
+                break;
+
+            default:
+                throw new Error(`Invalid input. You are currently in ${currentFolderPath}`);
         }
 
     } catch(e) {
