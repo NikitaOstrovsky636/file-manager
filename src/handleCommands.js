@@ -10,6 +10,8 @@ import renameFile from './operations-with-files/rename.js';
 import copyFile from './operations-with-files/copy.js';
 import moveFile from './operations-with-files/move.js';
 import removeFile from './operations-with-files/remove.js';
+import handleOsCommands from './operations-with-os/handle-os-commands.js';
+
 
 let currentFolderPath = homedir();
 
@@ -86,6 +88,11 @@ export default async function handleCommands(command) {
                 removeFile(pathToRemovedFile || null);
 
                 break;
+            
+            case ('os'):
+                const commandFlag = arrayFromCommand[1];
+
+                handleOsCommands(commandFlag || null);
         }
 
     } catch(e) {
