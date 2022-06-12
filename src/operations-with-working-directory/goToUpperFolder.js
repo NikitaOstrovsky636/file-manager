@@ -12,11 +12,6 @@ export default async function(currentPath) {
         chdir(newPath);
         console.log(`You are currently in ${newPath}\n`);
         return newPath;
-    
-        // if (isFolderExists) {
-        // } else {
-        //     throw new Error(`Operation failed! You are currently in ${currentPath}\n`);
-        // }
 
     } catch (e) {
         console.log(e.message);

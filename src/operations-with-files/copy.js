@@ -6,7 +6,7 @@ export default async function(sourceFile, targetDirectory) {
     try {
 
         if (sourceFile === null || targetDirectory === null) {
-            throw new Error(`Operation failed! There is not path to file.\n`);
+            throw new Error(`\nInvalid input. You are currently in ${cwd()}\n`);
         } else {
             const currentDirectory = cwd();
             const resolvedPathToSourceFile = resolve(currentDirectory, sourceFile);

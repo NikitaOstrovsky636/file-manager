@@ -1,11 +1,12 @@
 import { resolve } from 'path';
 import { chdir } from 'process';
 import { stat } from 'node:fs/promises';
+import { cwd } from 'process';
 
 export default async function(current, target) {
     try {
         if (target === null) {
-            throw new Error(`Operation failed! You are currently in ${current}\n`);
+            throw new Error(`\nInvalid input. You are currently in ${cwd()}\n`);
         } else {
 
             const newPath = resolve(current, target);

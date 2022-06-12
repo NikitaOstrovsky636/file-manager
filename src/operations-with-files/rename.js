@@ -6,7 +6,7 @@ export default async function(pathToFile, newFileName) {
     try {
 
         if (pathToFile === null) {
-            throw new Error(`Operation failed.\n`);
+            throw new Error(`\nInvalid input. You are currently in ${cwd()}\n`);
         } else {
 
             const currentDirectory = cwd();
