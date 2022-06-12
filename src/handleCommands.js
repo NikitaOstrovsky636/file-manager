@@ -12,6 +12,8 @@ import moveFile from './operations-with-files/move.js';
 import removeFile from './operations-with-files/remove.js';
 import handleOsCommands from './operations-with-os/handle-os-commands.js';
 import hashFile from './operations-with-hash/hash.js';
+import compress from './compress-and-decompress-operations/compress.js';
+import decompress from './compress-and-decompress-operations/decompress.js';
 
 
 let currentFolderPath = homedir();
@@ -101,6 +103,22 @@ export default async function handleCommands(command) {
                 const hashedFile = arrayFromCommand[1];
 
                 hashFile(hashedFile || null);
+
+                break;
+
+            case ('compress'):
+                const pathToCompressedFile = arrayFromCommand[1];
+                const destinationFile = arrayFromCommand[2];
+    
+                compress(pathToCompressedFile || null, destinationFile || null);
+    
+                break;
+                
+            case ('decompress'):
+                const pathToDecompressFile = arrayFromCommand[1];
+                const decompressionDestinationFile = arrayFromCommand[2];
+
+                decompress(pathToDecompressFile || null, decompressionDestinationFile || null);
 
                 break;
 
