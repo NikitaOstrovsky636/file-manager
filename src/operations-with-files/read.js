@@ -29,7 +29,7 @@ export default async function(pathToFile) {
                 console.log(`\nYou are currently in ${currentDirectory}\n`);
 
             } else {
-                throw new Error(`Operation failed! No such file.\n`);
+                throw new Error(`Operation failed! You are currently in ${currentDirectory}\n`);
             }
         }
     } catch (e) {
